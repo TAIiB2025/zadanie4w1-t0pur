@@ -1,0 +1,26 @@
+<div>
+    <a routerLink="form">Dodaj</a>
+</div>
+<hr />
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tytuł</th>
+            <th>Autor</th>
+            <th>Gatunek</th>
+            <th>Rok</th>
+            <th>Przejdź</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let obiekt of (dane$ | async)">
+            <td>{{obiekt.id}}</td>
+            <td>{{obiekt.tytul}}</td>
+            <td>{{obiekt.autor}}</td>
+            <td>{{obiekt.gatunek}}</td>
+            <td>{{obiekt.rok}}</td>
+            <td><a [routerLink]="obiekt.id + ''">Link</a></td>
+        </tr>
+    </tbody>
+</table>
