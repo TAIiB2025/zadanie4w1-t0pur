@@ -1,7 +1,17 @@
 <div>
     <a routerLink="form">Dodaj</a>
 </div>
+
+<!-- FORMULARZ FILTROWANIA -->
+<div style="margin-top: 1em;">
+    <label>Szukaj po tytule:</label>
+    <input [(ngModel)]="fraza" placeholder="np. Wiedźmin" />
+    <button (click)="onSzukaj()">Szukaj</button>
+    <button (click)="onWyczysc()">Wyczyść</button>
+</div>
+
 <hr />
+
 <table border="1">
     <thead>
         <tr>
@@ -15,11 +25,11 @@
     </thead>
     <tbody>
         <tr *ngFor="let obiekt of (dane$ | async)">
-            <td>{{obiekt.id}}</td>
-            <td>{{obiekt.tytul}}</td>
-            <td>{{obiekt.autor}}</td>
-            <td>{{obiekt.gatunek}}</td>
-            <td>{{obiekt.rok}}</td>
+            <td>{{ obiekt.id }}</td>
+            <td>{{ obiekt.tytul }}</td>
+            <td>{{ obiekt.autor }}</td>
+            <td>{{ obiekt.gatunek }}</td>
+            <td>{{ obiekt.rok }}</td>
             <td><a [routerLink]="obiekt.id + ''">Link</a></td>
         </tr>
     </tbody>
